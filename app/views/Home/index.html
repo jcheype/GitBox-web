@@ -1,0 +1,65 @@
+#{extends 'main.html' /}
+#{set title:'access' /}
+
+#{set 'moreScripts' }
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+    $(".detailsBtn").click(function(event){
+    event.preventDefault()
+    $(this).parent().next(".details").slideToggle('fast')
+    });
+    });
+</script>
+#{/set}
+
+<div class="span-24">
+
+    <div class="span-12">
+        <div class="span-10 repositories panel last">
+            repositories:
+            <ul>
+                #{list items:repositories, as:'repository'}
+                <li><a href="repositories/${repository.name}">git@www.jcheype.com:${repository.name}.git</a></li>
+                #{/list}
+            </ul>
+        </div>
+    </div>
+    <div class="span-12 last">
+        <div class="prepend-2 span-10 repositories panel last">
+            <form action="/repositories" method="post">
+                <div>repository:</div>
+                <input type="text" name="name"/>
+                <input type="submit" value="Create repository"/>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="span-24">
+    <div class="span-12">
+        <div class="span-10 keys panel last">
+            <div>keys:</div>
+            #{list items:user.sshkeys, as:'entry'}
+            <div class="span-10 last">
+                <div class="span-10 key headerKey">
+                    <div class="span-9 detailsBtn">${entry.value.name}</div>
+                    <div class="span-1 last">| <a href="/keys/delete/${entry.key}">del</a></div>
+                </div>
+                <div class="span-10 details">
+                    <textarea class="keyArea" readonly="true">${entry.value.sshkey}</textarea>
+                </div>
+            </div>
+            #{/list}
+        </div>
+    </div>
+
+    <div class="span-12 last">
+        <div class="prepend-2 span-10 keys panel last">
+            <form action="/keys" method="post">
+                <div>key:</div>
+                name: <input type="text" name="keyName"/>
+                <textarea class="keyArea" name="key"></textarea>
+                <input type="submit" value="Add Key"/>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+#{extends 'main.html' /}
+#{set title:'access' /}
+
+<h1>${repository.name}</h1>
+
+<div>read:
+    <ul>
+        #{list items:repository.readUsers, as:'user'}
+        <li>${user} | <a href="/repositories/${repository.name}/read/${user}/delete">del</a></li>
+        #{/list}
+    </ul>
+</div>
+
+<div>write:
+    <ul>
+        #{list items:repository.writeUsers, as:'user'}
+        <li>${user} | <a href="/repositories/${repository.name}/write/${user}/delete">del</a></li>
+        #{/list}
+    </ul>
+</div>
+<div>
+    <h3>repository add access:</h3>
+
+    <form action="/repositories/${repository.name}" method="post">
+        <div><input type="radio" name="type" value="read" checked>read</div>
+        <div><input type="radio" name="type" value="write" >write</div>
+        <div>user: <input type="text" name="username"/></div>
+        <div><input type="submit" value="Create repository"/></div>
+    </form>
+</div>

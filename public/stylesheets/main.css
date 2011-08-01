@@ -1,0 +1,49 @@
+.header{
+    height: 45px;
+}
+
+textarea.keyArea{
+    height:100px;
+    width: 375px;
+}
+
+.panel{
+
+    padding-right: 8px;
+    padding-left: 3px;
+    padding-top: 3px;
+    
+    border:1px solid #666666;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom:15px;
+}
+
+.repositories{
+    background-color: #e6f0ff;
+}
+
+.keys{
+    background-color: #e6fff0;
+}
+
+.key{
+    background-color: #a0ffa0;
+    margin-bottom: 3px;
+
+    padding: 2px;
+
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.details{
+    display:none;
+}
+
+.headerRight{
+    text-align: right;
+}

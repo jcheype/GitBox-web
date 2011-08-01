@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>#{get 'title' /}</title>
+    <meta charset="${_response_encoding}">
+    <!-- Framework CSS -->
+    <link rel="stylesheet" href="/public/blueprint/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="/public/blueprint/print.css" type="text/css" media="print">
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="/public/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+    #{get 'moreStyles' /}
+    <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+    <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript"
+            charset="${_response_encoding}"></script>
+    #{get 'moreScripts' /}
+</head>
+<body>
+<div class="container">
+    #{if session.get("username") }
+    <div class="span-24 header">
+        <div class="span-12">
+            &nbsp;
+        </div>
+        <div class="headerRight span-12 last">
+            ( ${session.get("username")} ) |
+            <a href="/home">home</a> |
+            <a href="/logout">logout</a>
+        </div>
+    </div>
+    #{/if}
+
+    #{doLayout /}
+</div>
+</body>
+</html>
