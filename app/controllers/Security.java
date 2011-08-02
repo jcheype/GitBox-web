@@ -28,9 +28,17 @@ public class Security extends Secure.Security {
         } catch (Exception e) {
             Logger.error(e,"error while check password");
         }
-
+        
         session.put("userId", user.getId());
         return b;
+    }
+
+    public static void onDisconnected(){
+        redirect("/");
+    }
+
+    public static void login(){
+
     }
 
     public static User currentUser(){

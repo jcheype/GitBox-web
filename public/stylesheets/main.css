@@ -1,5 +1,7 @@
 .header{
     height: 45px;
+    border-bottom:1px solid #A0A0A0;
+    margin-bottom:15px;
 }
 
 textarea.keyArea{
@@ -9,16 +11,34 @@ textarea.keyArea{
 
 .panel{
 
-    padding-right: 8px;
-    padding-left: 3px;
-    padding-top: 3px;
-    
+    padding: 8px;
     border:1px solid #666666;
 
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
     margin-bottom:15px;
+}
+
+.welcome .panel{
+    height: 170px;
+}
+.welcome .panel.login{
+    background-color: #e6fff0;
+}
+.welcome .panel.register{
+    background-color: #e6f0ff;
+}
+.welcome .panel h2{
+    text-align: center;
+}
+
+.panel .title{
+    font-weight:bold;
+    margin-bottom: 6px;
+}
+.panel .content{
+    padding: 8px;
 }
 
 .repositories{

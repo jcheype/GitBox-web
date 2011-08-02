@@ -18,18 +18,18 @@
 </head>
 <body>
 <div class="container">
-    #{if session.get("username") }
     <div class="span-24 header">
-        <div class="span-12">
-            &nbsp;
+        <div class="prepend-5 span-14">
+            <div class="error">This version is for demonstration only, all accounts and repositories can be removed at any time</div>
         </div>
-        <div class="headerRight span-12 last">
+        #{if session.get("username") }
+        <div class="headerRight span-4 last">
             ( ${session.get("username")} ) |
             <a href="/home">home</a> |
             <a href="/logout">logout</a>
         </div>
+        #{/if}
     </div>
-    #{/if}
 
     #{doLayout /}
 </div>

@@ -19,7 +19,7 @@ public class Welcome extends Controller {
     public static void index() {
         if(Security.currentUser() != null)
             Home.index();
-        render();
+        renderTemplate("Secure/login.html");
     }
 
     public static void register() {

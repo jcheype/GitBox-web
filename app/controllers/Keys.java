@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
  */
 public class Keys extends Controller {
     private static AuthorizedKeysGenerator authorizedKeysGenerator = new AuthorizedKeysGenerator();
-    static Pattern keyPattern = Pattern.compile("(ssh-rsa +[A-Za-z0-9+/=]+).*");
+    static Pattern keyPattern = Pattern.compile("^(ssh-rsa +[A-Za-z0-9+/=]+).*$", Pattern.DOTALL | Pattern.MULTILINE);
 
     public static void delete(String uuid) {
         final User user = Security.currentUser();
