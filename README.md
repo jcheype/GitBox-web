@@ -17,6 +17,7 @@ In order to install, GitBox-web on your server you'll have to:
 * choose one of the 2 script gitaccess (python or ruby) and install pymongo or mongo-ruby
 * make a symbolic link as git user:
 
+
        chmod +x gitaccess.rb
        ln -s gitaccess.rb $HOME/gitaccess
     
