@@ -18,7 +18,6 @@ import java.util.regex.Pattern;
  */
 public class Keys extends Controller {
     private static AuthorizedKeysGenerator authorizedKeysGenerator = new AuthorizedKeysGenerator();
-    static Pattern keyPattern = Pattern.compile("^(ssh-rsa +[A-Za-z0-9+/=]+).*$", Pattern.DOTALL | Pattern.MULTILINE);
 
     public static void delete(String uuid) {
         final User user = Security.currentUser();
@@ -33,10 +32,11 @@ public class Keys extends Controller {
         key.name = params.get("keyName");
 
         String keyValue = params.get("key");
-        final Matcher matcher = keyPattern.matcher(keyValue);
-        if (!matcher.matches())
-            error(500, "key is not valid");
-        key.sshkey = matcher.group(1);
+        try {
+            key.sshkey = Key.extractKey(keyValue);
+        } catch (Key.SshKeyException e) {
+            error(500, e.getMessage());
+        }
 
         final User user = Security.currentUser();
 

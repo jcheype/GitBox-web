@@ -6,13 +6,14 @@
 
 textarea.keyArea{
     height:100px;
-    width: 375px;
+    width: 370px;
 }
 
 .panel{
+    border:1px solid #A0A0A0;
+    width:100%;
 
-    padding: 8px;
-    border:1px solid #666666;
+    padding:4px;
 
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -33,6 +34,13 @@ textarea.keyArea{
     text-align: center;
 }
 
+.access .panel.list{
+    background-color: #e6fff0;
+}
+.access .panel.add{
+    background-color: #e6f0ff;
+}
+
 .panel .title{
     font-weight:bold;
     margin-bottom: 6px;
@@ -50,20 +58,36 @@ textarea.keyArea{
 }
 
 .key{
+    padding: 3px;
     background-color: #a0ffa0;
     margin-bottom: 3px;
-
-    padding: 2px;
-
+    
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
+
+    cursor : pointer;
 }
 
+.detailsBtn{
+    float:left;
+}
+.keyBtn{
+    float:right;
+}
 .details{
     display:none;
 }
 
 .headerRight{
     text-align: right;
+}
+
+.center{
+    text-align: center;
+}
+
+.full{
+    width: 100%;
+    overflow: auto;
 }

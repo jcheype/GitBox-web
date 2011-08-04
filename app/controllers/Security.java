@@ -37,10 +37,6 @@ public class Security extends Secure.Security {
         redirect("/");
     }
 
-    public static void login(){
-
-    }
-
     public static User currentUser(){
         return User.find("byUsername", connected()).first();
     }

@@ -1,39 +1,43 @@
 #{extends 'main.html' /}
 #{set title:'access' /}
 
-<h2>Repository: ${repository.name}</h2>
+<div class="span-24 access">
+    <div class="prepend-8 span-8"><h4>Repository: <b>git@www.mygitbox.com:${repository.name}.git</b></h4></div>
 
-<div class="span-24">
-    <div class="span-6 panel">
-        <div class="title">current access list:</div>
+    <div class="prepend-6 span-6">
+        <div class="panel list">
+            <div class="title">current access list:</div>
 
-        <div class="content">
-            <div>read:
-                <ul>
-                    #{list items:repository.readUsers, as:'user'}
-                    <li>${user} | <a href="/repositories/${repository.name}/read/${user}/delete">del</a></li>
-                    #{/list}
-                </ul>
-            </div>
+            <div class="content">
+                <div>read:
+                    <ul>
+                        #{list items:repository.readUsers, as:'user'}
+                        <li>${user} | <a href="/repositories/${repository.name}/read/${user}/delete">del</a></li>
+                        #{/list}
+                    </ul>
+                </div>
 
-            <div>write:
-                <ul>
-                    #{list items:repository.writeUsers, as:'user'}
-                    <li>${user} | <a href="/repositories/${repository.name}/write/${user}/delete">del</a></li>
-                    #{/list}
-                </ul>
+                <div>write:
+                    <ul>
+                        #{list items:repository.writeUsers, as:'user'}
+                        <li>${user} | <a href="/repositories/${repository.name}/write/${user}/delete">del</a></li>
+                        #{/list}
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-    <div class="prepend-3 span-6 panel">
-        <div class="title">repository add access:</div>
-        <div class="content">
-            <form action="/repositories/${repository.name}" method="post">
-                <div><input type="radio" name="type" value="read" checked>read</div>
-                <div><input type="radio" name="type" value="write">write</div>
-                <div>user: <input type="text" name="username"/></div>
-                <div><input type="submit" value="Add user"/></div>
-            </form>
+    <div class="prepend-1 span-6 last">
+        <div class="panel add">
+            <div class="title">repository add access:</div>
+            <div class="content">
+                <form action="/repositories/${repository.name}" method="post">
+                    <div><input type="radio" name="type" value="read" checked>read</div>
+                    <div><input type="radio" name="type" value="write">write</div>
+                    <div>user: <input type="text" name="username"/></div>
+                    <div><input type="submit" value="Add user"/></div>
+                </form>
+            </div>
         </div>
     </div>
 </div>

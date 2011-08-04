@@ -11,6 +11,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  * Created by IntelliJ IDEA.
@@ -29,6 +30,7 @@ public class User extends Model {
     @Required
     private byte[] passwordHashed;
 
+    public final Map<String, Key> sshkeys = new HashMap<String, Key>();
 
     public static byte[] makeHash(String username, String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         final MessageDigest digest = MessageDigest.getInstance("SHA-1");
@@ -54,8 +56,6 @@ public class User extends Model {
             throw new UserException("cannot set password", e);
         }
     }
-
-    public final Map<String, Key> sshkeys = new HashMap<String, Key>();
 
     public static class UserException extends Exception {
         public UserException(String s) {

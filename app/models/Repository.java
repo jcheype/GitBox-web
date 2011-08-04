@@ -63,20 +63,8 @@ public class Repository extends Model {
     }
 
     public static class RepositoryException extends Exception {
-        public RepositoryException() {
-            super();    //To change body of overridden methods use File | Settings | File Templates.
-        }
-
         public RepositoryException(String s) {
-            super(s);    //To change body of overridden methods use File | Settings | File Templates.
-        }
-
-        public RepositoryException(String s, Throwable throwable) {
-            super(s, throwable);    //To change body of overridden methods use File | Settings | File Templates.
-        }
-
-        public RepositoryException(Throwable throwable) {
-            super(throwable);    //To change body of overridden methods use File | Settings | File Templates.
+            super(s);
         }
     }
 
