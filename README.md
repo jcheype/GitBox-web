@@ -18,6 +18,7 @@ In order to install, GitBox-web on your server you'll have to:
  *  make a symbolic link as git user
 
     `chmod +x gitaccess.rb`
+
     `ln -s gitaccess.rb $HOME/gitaccess`
 
 
