@@ -2,3 +2,12 @@
 
 require:
     - play -> morphia 1.2.1beta6
+    - org.eclipse.jgit -> org.eclipse.jgit 1.0.0.201106090707-r
+
+repositories:
+    - jgit:
+        type: iBiblio
+        root: "http://download.eclipse.org/jgit/maven"
+        contains:
+            - org.eclipse.jgit -> *
+            
