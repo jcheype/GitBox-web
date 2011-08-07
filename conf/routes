@@ -3,12 +3,15 @@
 # ~~~~
 
 # Security
-*		/												module:secure
+#*		/												module:secure
+GET		/login											Secure.login
+POST	/login											Secure.authenticate
+GET		/logout											Secure.logout
 
 # Home page
 GET		/												Application.index
-#GET		/register										Application.register
-POST	/register										Application.register
+GET		/register										Application.register
+POST	/register										Application.createUser
 
 GET		/repositories/{name}							Repositories.access
 POST	/repositories									Repositories.add

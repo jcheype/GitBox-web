@@ -3,11 +3,13 @@
 
 #{set 'moreScripts' }
 <script type="text/javascript" charset="utf-8">
-    $(document).ready(function(){
-    $(".key").click(function(event){
-    $(this).children(".details").first().slideToggle('fast')
-    });
-    });
+$(document).ready(function(){
+
+	$(".key").click(function(){
+		$(this).children(".details").first().slideToggle('fast')
+	});
+
+});
 </script>
 #{/set}
 
@@ -18,7 +20,7 @@
             <div class="title">repositories:</div>
             <ul>
                 #{list items:repositories, as:'repository'}
-                <li><a href="repositories/${repository.name}">git@www.mygitbox.com:${repository.name}.git</a></li>
+                <li><a href="repositories/${repository.name}">${gituser}@${giturl}:${repository.name}.git</a></li>
                 #{/list}
             </ul>
         </div>

@@ -16,7 +16,8 @@ import java.security.NoSuchAlgorithmException;
  * To change this template use File | Settings | File Templates.
  */
 public class Security extends Secure.Security {
-    static boolean authenticate(String username, String password) {
+
+	static boolean authenticate(String username, String password) {
         final User user = User.find("byUsername", username).first();
         if(user == null){
             return false;
@@ -28,13 +29,11 @@ public class Security extends Secure.Security {
         } catch (Exception e) {
             Logger.error(e,"error while check password");
         }
-        
-        //session.put("userId", user.getId());
         return b;
     }
 
-    public static void onDisconnected(){
-        redirect("/");
+    static void onDisconnected(){
+        session.remove("username");
     }
 
     public static User currentUser(){

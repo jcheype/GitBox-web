@@ -1,51 +1,47 @@
 #{extends 'main.html' /}
-#{set title:'Welcome' /}
+#{set title:'GITBOX | Login' /}
 
 <div class="span-24 welcome">
-    <div class="prepend-5 span-6">
+    <div class="prepend-9 span-6">
         <div class="panel login">
-			#{form @Secure.login()}
+			#{form @Secure.authenticate(), id:'loginFrm'}
                 <h2>Login</h2>
 
                 <div>
                     <div class="span-2">Username:</div>
-                    <div class="span-4 last"><input type="text" name="username"/></div>
+                    <div class="span-4 last"><input type="text" id="username" name="username"/></div>
                 </div>
                 <div>
                     <div class="span-2">Password:</div>
                     <div class="span-4 last">
-                        <input type="password" name="password"/>
+                        <input type="password" id="password" name="password"/>
                     </div>
                 </div>
                 <div>
-                    <div class="span-6">
-                        <input type="checkbox" name="remember" id="remember" value="true"/>
+                    <div class="prepend-2 span-6">
+                        <input type="checkbox" name="remember" id="remember" checked/>
                         <label for="remember">Remember me</label>
                     </div>
                 </div>
-
-
-                <div class="prepend-2"><input type="submit"/></div>
+                <div class="prepend-2" style="display: table;">
+				  	<button type="submit" class="button positive">
+						<img src="@{'/public/blueprint/plugins/buttons/icons/key.png'}"/> Login
+					</button>
+				</div>
            	#{/form}
-        </div>
-    </div>
-    <div class="prepend-2 span-6">
-        <div class="panel register">
-			#{form @Application.register()}
-                <h2>Register</h2>
-
-                <div>
-                    <div class="span-2">Username:</div>
-                    <div class="span-4 last"><input type="text" name="username"/></div>
-                </div>
-                <div>
-                    <div class="span-2">Password:</div>
-                    <div class="span-4 last">
-                        <input type="password" name="password"/>
-                    </div>
-                </div>
-                <div class="prepend-2"><input type="submit"/></div>
-			#{/form}
+			<div class="prepend-2">
+	            <a class="button" href="@{Application.register()}">
+					<img src="@{'/public/blueprint/plugins/buttons/icons/tick.png'}" alt=""/> Register
+				</a>
+			</div>
         </div>
     </div>
 </div>
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function(){
+	$('#username').focus();
+	$('#loginBtn').click(function(){
+		$('#loginFrm').submit();
+	});
+});
+</script>
