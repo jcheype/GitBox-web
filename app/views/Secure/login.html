@@ -4,8 +4,7 @@
 <div class="span-24 welcome">
     <div class="prepend-5 span-6">
         <div class="panel login">
-            <form action="/login" method="post">
-                #{authenticityToken /}
+			#{form @Secure.login()}
                 <h2>Login</h2>
 
                 <div>
@@ -27,13 +26,12 @@
 
 
                 <div class="prepend-2"><input type="submit"/></div>
-            </form>
+           	#{/form}
         </div>
     </div>
     <div class="prepend-2 span-6">
         <div class="panel register">
-            <form action="/welcome/register" method="post">
-                #{authenticityToken /}
+			#{form @Application.register()}
                 <h2>Register</h2>
 
                 <div>
@@ -47,7 +45,7 @@
                     </div>
                 </div>
                 <div class="prepend-2"><input type="submit"/></div>
-            </form>
+			#{/form}
         </div>
     </div>
 </div>

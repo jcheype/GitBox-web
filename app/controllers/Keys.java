@@ -24,7 +24,7 @@ public class Keys extends Controller {
         user.sshkeys.remove(uuid);
         user.save();
         authorizedKeysGenerator.now();
-        Home.index();
+        Application.index();
     }
 
     public static void add() {
@@ -43,6 +43,6 @@ public class Keys extends Controller {
         user.sshkeys.put(UUID.randomUUID().toString(), key);
         user.save();
         authorizedKeysGenerator.now();
-        Home.index();
+        Application.index();
     }
 }

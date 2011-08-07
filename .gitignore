@@ -9,3 +9,6 @@ target/
 tmp/
 modules
 precompiled
+lib
+eclipse
+test-result

@@ -27,7 +27,7 @@ public class Repositories extends Controller {
             error(500, e.getMessage());
         }
 
-        Home.index();
+        Application.index();
     }
 
     public static void access(String name) {
@@ -59,7 +59,7 @@ public class Repositories extends Controller {
         String username = params.get("username");
         String type = params.get("type");
 
-        if (!Welcome.usernamePattern.matcher(username).matches()) {
+        if (!Application.usernamePattern.matcher(username).matches()) {
             error(500, "username must be [A-Za-z0-9_]");
             return;
         }

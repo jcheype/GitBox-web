@@ -29,7 +29,7 @@ public class Security extends Secure.Security {
             Logger.error(e,"error while check password");
         }
         
-        session.put("userId", user.getId());
+        //session.put("userId", user.getId());
         return b;
     }
 
