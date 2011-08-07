@@ -16,7 +16,6 @@ import com.google.code.morphia.annotations.Indexed;
 
 /**
  * Created by IntelliJ IDEA. User: mush Date: 7/30/11 Time: 2:17 PM To change
- * this template use File | Settings | File Templates.
  */
 @Entity
 public class Repository extends Model {
