@@ -60,9 +60,8 @@ public class AuthorizedKeysGenerator extends Job {
             bufferedWriter.append(HEADER+"\n");
 
             Datastore ds = MorphiaPlugin.ds();
-            for (Iterator<User> it = ds.find(User.class).iterator(); it.hasNext(); ) {
-                User user = it.next();
-                String command = "command=\"/home/git/gitaccess.rb " + user.username + "\",no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty";
+            for (User user : ds.find(User.class) ) {
+                String command = "command=\"$HOME/gitaccess " + user.username + "\",no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty";
                 for (Map.Entry<String, Key> entry : user.sshkeys.entrySet()) {
                     bufferedWriter.append(command);
                     bufferedWriter.append(' ');
