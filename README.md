@@ -23,3 +23,15 @@ In order to install, GitBox-web on your server you'll have to:
 
 
 and voilà
+
+
+REST API:
+
+ * `GET     /api/{apikey}/repositories`
+ * `POST    /api/{apikey}/repositories         params: name`
+ * `GET     /api/{apikey}/repositories/{uuid}`
+ 
+ * `GET     /api/{apikey}/sshkeys`
+ * `POST    /api/{apikey}/sshkeys              params: name, key`
+ * `GET     /api/{apikey}/sshkeys/{uuid}`
+ * `DELETE  /api/{apikey}/sshkeys/{uuid}`
