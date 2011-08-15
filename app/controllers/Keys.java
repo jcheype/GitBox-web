@@ -1,13 +1,8 @@
 package controllers;
 
-import jobs.AuthorizedKeysGenerator;
 import models.Key;
 import models.User;
 import play.mvc.Controller;
-
-import java.util.UUID;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by IntelliJ IDEA.

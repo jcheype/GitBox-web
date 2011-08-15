@@ -2,15 +2,8 @@ package controllers;
 
 import models.Repository;
 import models.User;
-import org.eclipse.jgit.api.Git;
-import play.Logger;
-import play.Play;
 import play.mvc.Controller;
 import play.mvc.Http;
-
-import javax.persistence.Access;
-import java.io.File;
-import java.util.regex.Pattern;
 
 /**
  * Created by IntelliJ IDEA.

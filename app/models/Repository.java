@@ -1,9 +1,7 @@
 package models;
 
 import com.google.code.morphia.annotations.Entity;
-import com.google.code.morphia.annotations.Id;
 import com.google.code.morphia.annotations.Indexed;
-import org.bson.types.ObjectId;
 import org.eclipse.jgit.api.Git;
 import play.Play;
 import play.data.validation.Required;

@@ -1,7 +1,6 @@
 package models;
 
 import com.google.code.morphia.annotations.Embedded;
-import com.google.code.morphia.annotations.Indexed;
 import jobs.AuthorizedKeysGenerator;
 
 import java.util.regex.Matcher;
