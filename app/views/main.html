@@ -24,7 +24,7 @@
         </div>
         #{if session.get("username") }
         <div class="headerRight span-4 last">
-            ( ${session.get("username")} ) |
+            <a href="/users/index">( ${session.get("username")} )</a> |
             <a href="/home">home</a> |
             <a href="/logout">logout</a>
         </div>
