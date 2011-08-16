@@ -3,6 +3,7 @@ package models;
 import com.google.code.morphia.annotations.Entity;
 import com.google.code.morphia.annotations.Indexed;
 import org.eclipse.jgit.api.Git;
+import play.Logger;
 import play.Play;
 import play.data.validation.Required;
 import play.modules.morphia.Model;
@@ -46,6 +47,7 @@ public class Repository extends Model {
 		if (repoDir.exists()) {
 			throw new RepositoryException("repository exists");
 		}
+        Logger.debug("Creating repo: " + repoDir.getAbsolutePath());
 		Git.init().setBare(true).setDirectory(repoDir).call();
 
 		final Repository repository = new Repository();
