@@ -25,5 +25,5 @@ if repo == None and command == "git-upload-pack":
     repo = repoCollection.find_one({"name" : repoName, "readUsers" : user})
 
 if repo != None:
-    arg = "%s 'repo/%s.git'" %(command, repoName)
+    arg = "%s 'repo/%s/%s.git'" %(command, repo["owner"], repoName)
     os.execv("/usr/bin/git-shell", ["/usr/bin/git-shell","-c", arg])

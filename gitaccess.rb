@@ -26,5 +26,5 @@ if repository == nil and command == "git-upload-pack"
 end
 
 if repository != nil
-  exec("git-shell -c \"#{command} 'repo/#{repoName}.git'\"")
+  exec("git-shell -c \"#{command} 'repo/#{repository["owner"]}/#{repoName}.git'\"")
 end
