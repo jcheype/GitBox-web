@@ -1,4 +1,68 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'access' /}
 
-#{welcome /}
+#{set 'moreScripts' }
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function(){
+
+	$(".key").click(function(){
+		$(this).children(".details").first().slideToggle('fast')
+	});
+
+});
+</script>
+#{/set}
+
+<div class="span-24">
+
+    <div class="prepend-1 span-10">
+        <div class="repositories panel">
+            <div class="title">repositories:</div>
+            <ul>
+                #{list items:repositories, as:'repository'}
+                <li><a href="@{Repositories.access(repository.name)}">${gituser}@${giturl}:${repository.name}.git</a></li>
+                #{/list}
+            </ul>
+        </div>
+    </div>
+    <div class="prepend-2 span-10 last">
+        <div class="repositories panel last">
+            <form action="@{Repositories.add()}" method="post">
+                <div class="title">repository:</div>
+                <input type="text" name="name"/>
+                <input type="submit" value="Create repository"/>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="span-24">
+    <div class="prepend-1 span-10">
+        <div class="keys panel">
+            <div class="title">
+                ssh public keys:
+            </div>
+            #{list items:user.sshkeys, as:'entry'}
+            <div class="key">
+                <div class="full">
+                    <div class="detailsBtn">${entry.value.name}</div>
+                    <div class="keyBtn">| <a href="/keys/delete/${entry.key}">del</a></div>
+                </div>
+                <div class="details">
+                    <textarea class="keyArea" readonly="true">${entry.value.sshkey}</textarea>
+                </div>
+            </div>
+            #{/list}
+        </div>
+    </div>
+
+    <div class="prepend-2 span-10 last">
+        <div class="keys panel">
+            <form action="/keys" method="post">
+                <div class="title">ssh public key:</div>
+                name: <input type="text" name="keyName"/>
+                <textarea class="keyArea" name="key"></textarea>
+                <input type="submit" value="Add Key"/>
+            </form>
+        </div>
+    </div>
+</div>

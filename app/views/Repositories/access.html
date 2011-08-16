@@ -2,7 +2,8 @@
 #{set title:'access' /}
 
 <div class="span-24 access">
-    <div class="prepend-8 span-8"><h4>Repository: <b>git@${domain}:${repository.name}.git</b></h4></div>
+
+    <div class="prepend-8 span-8"><h4>Repository: <b>${gituser}@${giturl}:${user}/${repository.name}.git</b></h4></div>
 
     <div class="prepend-6 span-6">
         <div class="panel list">
@@ -12,7 +13,7 @@
                 <div>read:
                     <ul>
                         #{list items:repository.readUsers, as:'user'}
-                        <li>${user} | <a href="/repositories/${repository.name}/read/${user}/delete">del</a></li>
+                        <li>${user} | <a href="@{Repositories.accessDelete(repository.name, "read", user)}">del</a></li>
                         #{/list}
                     </ul>
                 </div>
@@ -20,7 +21,7 @@
                 <div>write:
                     <ul>
                         #{list items:repository.writeUsers, as:'user'}
-                        <li>${user} | <a href="/repositories/${repository.name}/write/${user}/delete">del</a></li>
+                        <li>${user} | <a href="@{Repositories.accessDelete(repository.name, "write", user)}">del</a></li>
                         #{/list}
                     </ul>
                 </div>
@@ -31,7 +32,7 @@
         <div class="panel add">
             <div class="title">repository add access:</div>
             <div class="content">
-                <form action="/repositories/${repository.name}" method="post">
+                <form action="@{Repositories.accessAdd(repository.name)}" method="post">
                     <div><input type="radio" name="type" value="read" checked>read</div>
                     <div><input type="radio" name="type" value="write">write</div>
                     <div>user: <input type="text" name="username"/></div>

@@ -14,10 +14,7 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * Created by IntelliJ IDEA.
- * User: mush
- * Date: 7/31/11
- * Time: 12:13 AM
+ * Created by IntelliJ IDEA. User: mush Date: 7/31/11 Time: 12:13 AM
  */
 
 @Entity
@@ -54,6 +51,10 @@ public class User extends Model {
         if (password == null) {
             throw new UserException("password cannot be null");
         }
+        if(password.isEmpty()){
+            throw new UserException("Password length must be > 3");
+        }
+
         try {
             this.passwordHashed = makeHash(username, password);
             apikey = UUID.randomUUID().toString();
@@ -78,4 +79,5 @@ public class User extends Model {
             super(s, throwable);    //To change body of overridden methods use File | Settings | File Templates.
         }
     }
+
 }

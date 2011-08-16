@@ -1,0 +1,40 @@
+#{extends 'main.html' /}
+#{set title:'GITBOX | Register' /}
+
+<div class="span-24 welcome">
+    <div class="prepend-9 span-6">
+        <div class="panel register">
+			#{form @Application.createUser(), id:'registerFrm'}
+                <h2>Register</h2>
+                <div>
+                    <div class="span-2">Username:</div>
+                    <div class="span-4 last"><input type="text" id="username" name="username"/></div>
+                </div>
+                <div>
+                    <div class="span-2">Password:</div>
+                    <div class="span-4 last">
+                        <input type="password" id="password" name="password"/>
+                    </div>
+                </div>
+                <div class="prepend-2">
+				  <button id="registerBtn" type="submit" class="button positive">
+					<img src="@{'/public/blueprint/plugins/buttons/icons/key.png'}"> Register
+				  </button>
+				</div>
+			#{/form}
+        </div>
+		<div class="prepend-2">
+            <a class="button negative" href="@{Secure.login()}">
+				<img src="@{'/public/blueprint/plugins/buttons/icons/tick.png'}" alt=""/> Login
+			</a>
+		</div>
+    </div>
+</div>
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function(){
+	$('#username').focus();
+	$('#registerBtn').click(function(){
+		$('#registerFrm').submit();
+	});
+});
+</script>

@@ -2,23 +2,34 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+# Security
+#*		/												module:secure
+GET		/login											Secure.login
+POST	/login											Secure.authenticate
+GET		/logout											Secure.logout
+
 # Home page
-GET     /                                       Welcome.index
+GET		/												Application.index
+GET		/register										Application.register
+POST	/register										Application.createUser
+
+GET		/repositories/{name}							Repositories.access
+POST	/repositories									Repositories.add
+POST	/repositories/{name}							Repositories.accessAdd
+GET		/repositories/{name}/{type}/{username}/delete	Repositories.accessDelete
+
+GET     /users/?                                        Users.index
+POST    /users/password                                 Users.changePassword
+
+# Keys
+POST	/keys/?											Keys.add
+GET		/keys/delete/{uuid}								Keys.delete
 
 # Ignore favicon requests
-GET     /favicon.ico                            404
+GET		/favicon.ico									404
 
-# Map static resources from the /app/public folder to the /public path
-GET     /public/                                staticDir:public
-
-GET    /repositories/{name}                              Repositories.access
-POST   /repositories                                     Repositories.add
-POST   /repositories/{name}                              Repositories.accessAdd
-GET    /repositories/{name}/{type}/{username}/delete    Repositories.accessDelete
-
-GET    /home/?                    Home.index
-POST   /keys/?                    Keys.add
-GET    /keys/delete/{uuid}        Keys.delete
+# Map static resources
+GET		/public/										staticDir:public
 
 GET     /api/{apikey}/repositories         Api.listRepositories
 POST    /api/{apikey}/repositories         Api.addRepository
@@ -30,5 +41,6 @@ GET     /api/{apikey}/keys/{uuid}          Api.showSshKey
 DELETE  /api/{apikey}/keys/{uuid}          Api.deleteSshKey
 
 *       /                                       module:secure
+
 # Catch all
-*       /{controller}/{action}                  {controller}.{action}
+#*		/{controller}/{action}							{controller}.{action}
