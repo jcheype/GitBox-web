@@ -1,7 +1,7 @@
 package models;
 
 import com.google.code.morphia.annotations.Embedded;
-import com.google.code.morphia.annotations.Indexed;
+import jobs.AuthorizedKeysGenerator;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -19,6 +19,7 @@ public class Key {
     public String sshkey;
 
     public final static Pattern keyPattern = Pattern.compile("^(ssh-[a-z]+ +[A-Za-z0-9+/=]+).*$", Pattern.DOTALL | Pattern.MULTILINE);
+    public final static AuthorizedKeysGenerator authorizedKeysGenerator = new AuthorizedKeysGenerator();
 
     public static String extractKey(String key) throws SshKeyException {
         final Matcher matcher = keyPattern.matcher(key);

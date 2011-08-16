@@ -12,13 +12,16 @@
 #{/set}
 
 <div class="span-24">
+apikey: ${user.apikey}
+</div>
+<div class="span-24">
 
     <div class="prepend-1 span-10">
         <div class="repositories panel">
             <div class="title">repositories:</div>
             <ul>
                 #{list items:repositories, as:'repository'}
-                <li><a href="repositories/${repository.name}">git@www.mygitbox.com:${repository.name}.git</a></li>
+                <li><a href="repositories/${repository.name}">git@${domain}:${repository.name}.git</a></li>
                 #{/list}
             </ul>
         </div>

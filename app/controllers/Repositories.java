@@ -2,14 +2,8 @@ package controllers;
 
 import models.Repository;
 import models.User;
-import org.eclipse.jgit.api.Git;
-import play.Logger;
-import play.Play;
 import play.mvc.Controller;
-
-import javax.persistence.Access;
-import java.io.File;
-import java.util.regex.Pattern;
+import play.mvc.Http;
 
 /**
  * Created by IntelliJ IDEA.
@@ -33,7 +27,8 @@ public class Repositories extends Controller {
     public static void access(String name) {
         try {
             final Repository repository = Repository.find("byName", name).first();
-            render(repository);
+            String domain = Http.Request.current().domain;
+            render(repository, domain);
         } catch (IndexOutOfBoundsException e) {
             error(501, "user doesn't exist");
         }
@@ -63,7 +58,7 @@ public class Repositories extends Controller {
             error(500, "username must be [A-Za-z0-9_]");
             return;
         }
-        if(User.find("byUsername", username).count()  != 1){
+        if (User.find("byUsername", username).count() != 1) {
             error(500, "cannot find user");
         }
 

@@ -1,12 +1,7 @@
 package controllers;
 
 import models.User;
-import org.bson.types.ObjectId;
 import play.Logger;
-import play.mvc.Scope;
-
-import java.io.UnsupportedEncodingException;
-import java.security.NoSuchAlgorithmException;
 
 /**
  * Created by IntelliJ IDEA.
